@@ -1,0 +1,17 @@
+
+button{
+    margin-top: 10px
+}
+
+@media (max-width:820px){
+    h4{
+        color: white
+    }
+}
+@media (max-width:645px){
+    h4{
+        color: white;
+        font-size: 20px
+
+    }
+}

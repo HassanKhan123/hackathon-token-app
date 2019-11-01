@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Khan's Portal - Company</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <link href="../css/main.css" type="text/css" rel="stylesheet" />
+    <link href="../css/company.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="center">
+            <button class="btn" onclick="backToHome()">Back to Home</button>
+        </div>
+        <h1 class="center">Welcome to Khan's Portal</h1>
+        <ul class="collection">
+            <li class="collection-item avatar white-text black darken-4" id="active1">
+
+            </li>
+        </ul>
+        <button data-target="modal3" class="btn modal-trigger">
+            <i class="material-icons left">add</i>
+            Add your company
+        </button>
+        <div class="companiesList">
+
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <form class="add-company container section">
+                    <h6>New Company</h6>
+                    <div class="divider"></div>
+                    <div class="input-field">
+                        <input placeholder="e.g. ABC Company" id="name" type="text" class="validate">
+                        <label for="name">Company Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="e.g. 2007" id="since" type="text" class="validate">
+                        <label for="since">Since</label>
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="e.g. 9 am - 5 pm" id="time" type="text" class="validate">
+                        <label for="time">Timing</label>
+                    </div>
+
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <input placeholder="e.g Expertizo" id="address"
+                            type="text" class="validate" onchange="getLocation()" oninput="getLocation()">
+                        <label for="address">Address</label>
+                    </div>
+                    <div class="input-field col s12" id="drop">
+                        <select class="browser-default" id="locations" onchange="getInfo()">
+                            <option id="val1"></option>
+                            <option id="val2"></option>
+
+                            <option id="val3"></option>
+
+                            <option id="val4"></option>
+
+                            <option id="val5"></option>
+
+                        </select>
+                    </div>
+
+                    <!-- <div id="map1"></div> -->
+
+                    
+
+
+            </div>
+            <div class="modal-footer">
+                    <div id="map1" class="center"></div>
+                <div class="input-field center">
+                    <button class="btn-small" id="add">Add</button>
+                </div>
+                <div id="loader" class="center"></div>
+                </form>
+            </div>
+
+           
+
+
+        </div>
+
+
+    </div>
+
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+
+
+            <form id="myForm">
+
+                Today's Token quantity: <input type="number" id="tnum" name="quantity" min="1" max="20" value="" class="validate">
+                Token's Duration: <input type="number" id="duration" name="duration" min="1" max="20" value="" class="validate">
+                <!-- <div class="input-field">
+                    <label for="duration">Estimated Time</label>
+                    <input placeholder="in minutes" id="duration" type="text" class="validate" value="">
+                </div> -->
+                <div class="input-field">
+
+                    <input type="submit" class="btn" value="Add Token Information">
+                </div>
+
+            </form>
+
+        </div>
+        <!-- <div class="modal-footer">
+            
+        </div> -->
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <ul class="collection">
+
+            </ul>
+        </div>
+    </div>
+    <!-- <div id="map1"></div> -->
+    
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPLKZyPRRKHMpTneVugbPC_-CjTnrE53o&callback=initMap"
+        async defer></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-storage.js"></script>
+    <script src="../scripts/firebase.js"></script>
+    <script src="../scripts/foursquare.js"></script>
+    <script src="../scripts/company.js"></script>
+    <script src="../scripts/materialize.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</body>
+
+</html>

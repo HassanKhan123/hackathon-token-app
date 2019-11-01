@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Khan's Portal - login</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="src/css/main.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="container center">
+            <div id="bg"></div>
+        <h1 class="center">Welcome to Khan's Portal</h1>
+
+        <button class="btn btn-large blue white-text darken-4" onclick="loginWithFb()">
+            <i class="fab fa-facebook-f left"></i> Sign up with Facebook
+        </button>
+
+        <div id="loader" class="center"></div>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-messaging.js"></script>
+
+
+    <script src="src/scripts/firebase.js"></script>
+    <script src="src/scripts/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</body>
+</html>

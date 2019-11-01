@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "hassan-hackathon",
+    "default": "hassan-hackathon"
+  }
+}
